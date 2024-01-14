@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>title</title>
+  <script src="./main.js" defer></script>
+  <style>
+    #input-wrapper {
+      display: flex;
+      width: 100%;
+    }
+
+    #input-wrapper > div {
+      flex: 1;
+    }
+    .editor {
+      display: block;
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    </style>
+</head>
+<body>
+   <!-- TODO: revisit markup -->
+  <div id="input-wrapper">
+    <div>
+      <h2>Decoders</h2>
+      <pre><code class="language-html editor" id="decoders" contenteditable></code></pre>
+      <!-- <div id="decoders" contenteditable> -->
+    </div>
+    <div>
+      <h2>verification</h2>
+      <pre><code class="language-html editor" id="verification" contenteditable></code></pre>
+    </div>
+  </div>
+  <div>
+    <button id="verify">Verify</button>
+  </div>
+  <div>
+    <h2>Result</h2>
+    <pre><code class="language-html editor" id="result"></code></pre>
+  </div>
+</body>
+</html>
