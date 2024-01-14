@@ -19,6 +19,15 @@
       border: 1px solid #ccc;
       padding: 10px;
     }
+    .status > span {
+      display: none;
+    }
+    .status.fail > span.fail {
+      display: inline-block !important;
+    }
+    .status.success > span.success {
+      display: inline-block !important;
+    }
     </style>
 </head>
 <body>
@@ -38,7 +47,10 @@
     <button id="verify">Verify</button>
   </div>
   <div>
-    <h2>Result</h2>
+    <h2 class="status" id="result-status">Result 
+      <span class="fail">&#10060;</span>
+      <span class="success">&#9989;</span>
+    </h2>
     <pre><code class="language-html editor" id="result"></code></pre>
   </div>
 </body>

@@ -95,6 +95,7 @@ function getTextNodeAtPosition(root, index){
 // Cursor management - end //
 
 const resultEditor = document.querySelector("#result");
+const resultStatus = document.querySelector("#result-status");
 const runButton = document.querySelector("#verify");
 
 runButton.addEventListener("click", (e) => { 
@@ -102,10 +103,19 @@ runButton.addEventListener("click", (e) => {
   decoder.verify(${verificationEditor.textContent})`;
   console.log("decoderCode", decoderCode);
   let res = "";
+  let hasFailed = false;
   try {
     res = JSON.stringify(eval(decoderCode), null, 2);
   } catch(e) {
+    hasFailed = true;
     res = e.message;
+  }
+  if (hasFailed) {
+    resultStatus.classList.add("fail");
+    resultStatus.classList.remove("success");
+  } else {
+    resultStatus.classList.add("success");
+    resultStatus.classList.remove("fail");
   }
   resultEditor.textContent = res;
 });
